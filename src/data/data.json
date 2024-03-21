@@ -1,0 +1,55 @@
+{
+    "options": [
+       {
+          "label": "Home",
+          "handler": {
+             "action": "LINK",
+             "link": "/home"
+          }
+       },
+       {
+          "label": "Setup",
+          "handler": {
+             "action": "LEFT-CHILD"
+          },
+          "condition" : [
+             {
+                "param" : "user.type",
+                "value"  : "ADMIN",
+                "action"  : "show"
+             }
+          ],
+          "child": [
+             {
+                "label": "Batch",
+                "handler": {
+                   "action": "VIEW",
+                   "resource" : "batch"
+                }
+             },
+             {
+                "label": "Student",
+                "handler": {
+                   "action": "VIEW",
+                   "resource" : "student"
+                }
+             }
+          ]
+       },
+       {
+          "label": "Activity",
+          "handler": {
+             "action": "LEFT-CHILD"
+          },
+          "child": [
+             {
+                "label": "In/Out",
+                "handler": {
+                   "action": "VIEW",
+                   "resource" : "inout"
+                }
+             }
+          ]
+       }
+    ]
+}
